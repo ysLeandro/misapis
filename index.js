@@ -6,4 +6,4 @@ dotenv.config();
 const server= new Server();
 server.listen();
 
-console.log('hola mundo xdddddd');
+console.log('hola mundo xdd');
