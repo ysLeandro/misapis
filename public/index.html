@@ -1,2 +1,236 @@
-<!--Error 404-->
-<h2>Error Pagina no encontrada</h2>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Spider-Verse</title>
+    <link rel="icon" href="images/Logo-Spiderman.png" type="image/png">
+
+    <!-- CSS FILES -->
+    <link href="css/spiderverse-theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/busqueda.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Sono:wght@200;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link href="css/templatemo-pod-talk.css" rel="stylesheet">
+
+    <!--
+
+TemplateMo 584 Pod Talk
+
+https://templatemo.com/tm-584-pod-talk
+
+-->
+</head>
+    
+<body>
+
+    <main>
+        <div id="alertaSpider" class="alerta-spider"></div>   
+        <div class="banner-overlay-controls">
+            <a href="#" class="logo-overlay" id="btnAgregarSpider">
+                <img src="images/Logo-Spiderman.png" alt="Spider-Verse Logo" class="logo-img-overlay">
+                <span class="texto-agregar">Agregar Spider</span>
+            </a>
+        </div>
+        
+        <section class="hero-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <div class="text-center mb-5 pb-2">
+                            <h1 class="text-white">Spider-Verse</h1>
+                            <p class="text-white">Lista de los mejores Spider-Men</p>
+                        </div>
+
+                        <div class="owl-carousel owl-theme aleatorio">
+                            <!--lista de spider aleatorios-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="trending-podcast-section section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12 d-flex justify-content-between align-items-center mb-4">
+                        <div class="search-container">
+                            <input type="text" id="searchSpider" class="form-control form-control-sm"
+                                placeholder="Buscar Spider-Man...">
+                            <div id="searchResults"></div>
+                        </div>
+                        <p class="text-white mb-0">Conoce a los Spider-Men del multiverso</p>
+                    </div>
+
+                    <div class="navegaspider"></div>
+
+                    <div class="detallespider mt-5"></div>
+
+                </div>
+
+                <div class="row">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <button class="page-link" id="btnAnterior" type="button">Anterior</button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link" id="btnSiguiente" type="button">Siguiente</button>
+                            </li>
+                            <li class="page-item lista-spiders-item">
+                                <a href="listarspiders.html" class="page-link lista-spiders-btn">
+                                    Lista de Spiders
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="spiderModal" tabindex="-1" aria-labelledby="spiderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="spiderModalLabel">Detalle Spider-Men</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body detallespider-modal"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reproductor -->
+    <div id="miniPlayer" class="mini-player">
+        <div id="mediaTitle" class="media-title">Musica</div>
+    
+        <audio id="audioPlayer" loop></audio>
+        <video id="videoPlayer" width="250" controls style="display:none;"></video>
+
+        <div class="progress-container">
+            <input type="range" id="progressBar" min="0" max="100" value="0">
+            <span id="currentTime">0:00</span> / <span id="durationTime">0:00</span>
+        </div>
+
+        <div class="player-controls">
+            <img src="./images/icons/prev.png" id="prevBtn" alt="Anterior" class="player-btn">
+            <img src="./images/icons/play-button.png" id="playBtn" alt="Play" class="player-btn">
+            <img src="./images/icons/pause-button.png" id="pauseBtn" alt="Pause" class="player-btn"
+                style="display:none;">
+            <img src="./images/icons/next.png" id="nextBtn" alt="Siguiente" class="player-btn">
+
+            <div class="volume-control">
+                <input type="range" id="volumeSlider" min="0" max="100">
+            </div>
+
+            <img src="./images/icons/mostrar-video.png" id="videoBtn" alt="Mostrar Video" class="player-btn"
+                style="display:none;">
+            <img src="./images/icons/cerrar-video.png" id="closeBtn" alt="Cerrar Video" class="player-btn"
+                style="display:none;">
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAgregarSpider" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">Agregar Nuevo Spider-Man</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+    
+                    <form id="formAgregarSpider" class="row g-3">
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Nombre *</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Universo *</label>
+                            <input type="text" class="form-control" id="universo" required>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Alias</label>
+                            <input type="text" class="form-control" id="alias">
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Habilidades (coma , separadas)</label>
+                            <input type="text" class="form-control" id="habilidades">
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Origen</label>
+                            <input type="text" class="form-control" id="origen">
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-label">Año de aparición</label>
+                            <input type="number" class="form-control" id="añoAparicion">
+                        </div>
+    
+                        <div class="col-12">
+                            <label class="form-label">URL de imagen</label>
+                            <input type="text" class="form-control" id="imagen">
+                        </div>
+    
+                        <div class="col-12">
+                            <label class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+                        </div>
+    
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-guardar-spider">
+                                Guardar Spider-Man
+                            </button>
+                        </div>
+    
+                    </form>
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-warning py-3 mt-auto">
+        <div class="container">
+            <p class="text-center">&copy; 2025 Bautista Caicedo Jorge Leandro</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/spiders.js"></script>
+    <script src="js/musica.js"></script>
+    <script src="js/particulasmodal.js"></script>
+    <script src="js/agregarspiders.js"></script>
+</body>

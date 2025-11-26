@@ -1,0 +1,48 @@
+/* Contenedor del input de búsqueda */
+.search-container {
+    position: relative;
+    width: 300px; /* ancho fijo para que no ocupe toda la sección */
+}
+
+/* Input de búsqueda */
+#searchSpider {
+    padding: 0.25rem 0.5rem; /* estilo minimalista */
+    font-size: 0.875rem;
+}
+
+/* Dropdown de resultados */
+#searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none; /* se muestra solo cuando hay resultados */
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Cada resultado individual */
+.search-result-item {
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-result-item img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Spiders</title>
+
+    <link rel="icon" href="images/Logo-Spiderman.png" type="image/png">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="css/spiderverse-theme.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-white">
+
+    <div class="container py-4">
+        
+        <!-- BOTÓN REGRESAR -->
+        <a href="index.html" class="btn btn-spiderverse-back mt-2 mb-3">
+            Volver
+        </a>
+
+        <!-- TÍTULO -->
+        <h2 class="text-center mb-4 text-spider-title">Listado del Spider-Verse</h2>
+
+        <!-- BUSCADOR -->
+        <div class="d-flex justify-content-center mb-4">
+            <input type="text" id="buscarListado" class="form-control search-box"
+                placeholder="Buscar Spider por nombre, alias o universo...">
+        </div>
+
+        <!-- LISTA -->
+        <div class="row" id="contenedorListaSpiders"></div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/spiders.js"></script>
+</body>
+
+</html>
